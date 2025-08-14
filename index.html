@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="calculator">
+      <h1>Styled Calculator</h1>
+      <input type="text" id="result" readonly />
+      <br />
+      <button onclick="appendToResult('1')">1</button>
+      <button onclick="appendToResult('2')">2</button>
+      <button onclick="appendToResult('3')">3</button>
+      <button style="width: 9.5vw; " onclick="appendToResult('+')">+</button>
+      <br />
+      <button onclick="appendToResult('4')">4</button>
+      <button onclick="appendToResult('5')">5</button>
+      <button onclick="appendToResult('6')">6</button>
+      <button style="width: 9.5vw;" onclick="appendToResult('-')">-</button>
+      <br />
+      <button onclick="appendToResult('7')">7</button>
+      <button onclick="appendToResult('8')">8</button>
+      <button onclick="appendToResult('9')">9</button>
+      <button style="width: 9.5vw;" onclick="appendToResult('*')">X</button>
+      <br />
+      
+        <button onclick="appendToResult('0')">0</button>
+        <button style="color: red;" onclick="clearResult()">C</button>
+        <button onclick="calculate()">=</button>
+         <button onclick="eraseOne()">&#9003</button>
+        <button onclick="appendToResult('/')">/</button>
+      
+    </div>
+        <div class="copywrite">
+          <p >Created by Muhammad Haris Awan</p>
+        </div>
+    <script>
+        function appendToResult(value){
+            document.getElementById('result').value += value;
+        }
+        
+        function clearResult(){
+            document.getElementById('result').value="";
+        }
+        function calculate(){
+            const textField=document.getElementById('result');
+            try{
+                textField.value=eval(textField.value);
+            }
+            catch(error){
+                textField.value='Error'
+            }
+        }
+        function eraseOne(){
+           const textField= document.getElementById('result');
+           textField.value=textField.value.slice(0,-1); 
+        }
+
+    </script>
+  </body>
+</html>
